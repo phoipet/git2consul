@@ -1,0 +1,15 @@
+{
+    "version": "1.0",
+    "repos" : [{
+      "name" : "{{ getv "/git2consul/name" }}",
+      "expand_keys" : true,
+      "url" : "{{ getv "/git2consul/url" }}",
+      "branches" : ["{{ getv "/git2consul/branch" }}"],
+      "ignore_repo_name" : true,
+      "ignore_file_extension" : true,
+      "hooks": [{
+        "type" : "polling",
+        "interval" : "1"
+      }]
+    }]
+  }

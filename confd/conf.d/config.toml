@@ -1,0 +1,10 @@
+[template]
+src = "./../templates/config.json.tmpl"
+dest = "/etc/git2consul/config.json"
+owner = "consul"
+mode = "0644"
+keys = [
+    "/git2consul/name",
+    "/git2consul/url",
+    "/git2consul/branch",
+]
