@@ -24,7 +24,7 @@ curl -X PUT -d '<git-repo-url>' http://<CONSUL_IP>:<CONSUL_PORT>/v1/kv/git2consu
 ```
 
 
-Use this [kv-data-sample](https://github.com/phoipet/consul-kv-data.git) for "git-repo-url"
+Use this [kv-sample](https://github.com/phoipet/kv-sample.git) for "git-repo-url"
 
 Run the container with
 ```
