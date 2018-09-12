@@ -20,8 +20,11 @@ You can add the k/v by execute this command (you can change the value with your 
 ```
 curl -X PUT -d 'kv-data' http://<CONSUL_IP>:<CONSUL_PORT>/v1/kv/git2consul/name
 curl -X PUT -d 'master' http://<CONSUL_IP>:<CONSUL_PORT>/v1/kv/git2consul/branch
-curl -X PUT -d 'https://github.com/phoipet/consul-kv-data.git' http://<CONSUL_IP>:<CONSUL_PORT>/v1/kv/git2consul/url
+curl -X PUT -d '<git-repo-url>' http://<CONSUL_IP>:<CONSUL_PORT>/v1/kv/git2consul/url
 ```
+
+
+Use this [kv-data-sample](https://github.com/phoipet/consul-kv-data.git) for "git-repo-url"
 
 Run the container with
 ```
