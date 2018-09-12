@@ -1,17 +1,25 @@
 FROM node:10-alpine
 MAINTAINER Phoipet <https://github.com/phoipet>
 
-ENV CONSUL_IP=""
-ENV CONSUL_PORT=""
+ENV CONSUL_IP="127.0.0.1"
+ENV CONSUL_PORT="8500"
+
+RUN addgroup -g 444 consul && \
+    adduser --system --uid 444 -g consul consul
 
 RUN apk --update add git openssh
 RUN npm install git2consul@0.12.13 --global 
-RUN mkdir -p /etc/git2consul
+# RUN ["chmod", "+x", "/run.sh"]
 
 ADD https://github.com/kelseyhightower/confd/releases/download/v0.10.0/confd-0.10.0-linux-amd64 /usr/local/bin/confd
 RUN chmod +x /usr/local/bin/confd
+
+RUN mkdir -p /etc/git2consul
 ADD confd /etc/confd/
 
+USER consul
+
+RUN mkdir /home/consul/git2consul
 COPY run.sh /run.sh
-RUN ["chmod", "+x", "/run.sh"]
+
 ENTRYPOINT ["sh","/run.sh"]
